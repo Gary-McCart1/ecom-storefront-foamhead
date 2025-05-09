@@ -1,0 +1,28 @@
+/* globals.css */
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background-color: transparent; /* Ensure body background is transparent */
+  margin: 0;
+  padding: 0;
+}
+
+.page {
+  margin: 4rem;
+}
+
+/* In your global CSS file */
+ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+li {
+  margin-bottom: 10px;
+}
