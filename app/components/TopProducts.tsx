@@ -11,6 +11,7 @@ const countProductOrders = (orders: Order[], products: Product[]) => {
 
   orders.forEach((order) => {
     order.products.forEach((orderedProduct) => {
+      console.log(orderedProduct)
       const product = products.find((p) => p.id === orderedProduct);
       if (!product) return;
 
