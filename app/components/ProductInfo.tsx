@@ -17,7 +17,7 @@ const ProductInfo = () => {
 
   useEffect(() => {
     const fetchProduct = async () => {
-      const response = await fetch(`http://localhost:8000/api/products/${id}`);
+      const response = await fetch(`https://foamhead-a8f24bda0c5b.herokuapp.com/api/products/${id}`);
       const data = await response.json();
       setProduct(data);
       if (data.images) setMainImage(data.images[0].url);

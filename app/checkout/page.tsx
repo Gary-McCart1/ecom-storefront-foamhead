@@ -59,7 +59,7 @@ const Checkout = () => {
     };
 
     try {
-      const res = await fetch("http://localhost:8000/api/orders/", {
+      const res = await fetch("https://foamhead-a8f24bda0c5b.herokuapp.com/api/orders/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

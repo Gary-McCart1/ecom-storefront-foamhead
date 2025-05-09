@@ -26,7 +26,7 @@ const CheckoutButton = forwardRef<HTMLButtonElement, CheckoutButtonProps>(
     console.log(cartItems);
     const handleCheckout = async () => {
       const response = await fetch(
-        "http://localhost:8000/api/create-checkout-session/",
+        "https://foamhead-a8f24bda0c5b.herokuapp.com/api/create-checkout-session/",
         {
           method: "POST",
           headers: {

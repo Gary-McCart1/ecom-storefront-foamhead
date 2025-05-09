@@ -28,7 +28,7 @@ const ReviewBlock = ({ product }: Props) => {
       review: reviewText,
     }
     try{
-      const res = await fetch("http://localhost:8000/api/reviews/", {
+      const res = await fetch("https://foamhead-a8f24bda0c5b.herokuapp.com/api/reviews/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

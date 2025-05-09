@@ -18,7 +18,7 @@ const ProductCard = ({ productId }: Props) => {
     const fetchProduct = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8000/api/products/${productId}`
+          `https://foamhead-a8f24bda0c5b.herokuapp.com/api/products/${productId}`
         );
         const data = await response.json();
         setProduct(data);

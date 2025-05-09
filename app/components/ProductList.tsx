@@ -15,7 +15,7 @@ const ProductList = ({filter}: Props) => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch(`http://localhost:8000/api/products?search=${filter}`);
+        const response = await fetch(`https://foamhead-a8f24bda0c5b.herokuapp.com/api/products?search=${filter}`);
         const data = await response.json();
         setProducts(data.results);
         console.log(data);

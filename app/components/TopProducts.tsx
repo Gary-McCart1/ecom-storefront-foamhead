@@ -38,11 +38,11 @@ const TopProductsBlock = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const orderResponse = await fetch("http://localhost:8000/api/orders");
+        const orderResponse = await fetch("https://foamhead-a8f24bda0c5b.herokuapp.com/api/orders");
         const orderData = await orderResponse.json();
 
         const productResponse = await fetch(
-          "http://localhost:8000/api/products"
+          "https://foamhead-a8f24bda0c5b.herokuapp.com/api/products"
         );
         const productData = await productResponse.json();
         setProducts(productData.results);

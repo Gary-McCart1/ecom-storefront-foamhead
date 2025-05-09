@@ -15,7 +15,7 @@ const ReviewList = ({ product }: Props) => {
     const fetchReviews = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8000/api/reviews/${product.id}`
+          `https://foamhead-a8f24bda0c5b.herokuapp.com/api/reviews/${product.id}`
         );
         const data = await response.json();
         setReviews(data);
