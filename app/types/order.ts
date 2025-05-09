@@ -1,5 +1,3 @@
-import { Product } from "./product";
-
 export type Order = {
   id: number;
   name: string;
@@ -11,5 +9,5 @@ export type Order = {
   status: string;
   shippingMethod: string;
   trackingNumber: string;
-  products: Product[];
+  products: number[];
 };
