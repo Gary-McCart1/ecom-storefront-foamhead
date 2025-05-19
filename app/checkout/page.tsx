@@ -60,7 +60,7 @@ const Checkout = () => {
       status: "Pending",
       shippingMethod,
       trackingNumber: "----", // Placeholder
-      total: cartTotal,
+      total: Number(cartTotal.toFixed(2)),
       // Include items array for nested serializer
       items: cartItems.map((item) => ({
         product: item.product.id,
