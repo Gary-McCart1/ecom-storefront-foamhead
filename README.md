@@ -1,5 +1,8 @@
 # 🛍️ E-commerce Storefront (Next.js + Tailwind CSS)
 
+Website Link: https://ecom-storefront-foamhead.vercel.app/
+Youtube Demo: 
+
 This is the **customer-facing frontend** for a full-featured e-commerce application. Built with **Next.js 13+ (App Router)** and **Tailwind CSS**, it provides a responsive, modern shopping experience.
 
 Customers can browse products, view detailed listings, manage their cart, and securely complete purchases using **Stripe Checkout**. The frontend fetches live product data from the Django REST API backend and handles order submission.
@@ -48,6 +51,7 @@ Planned improvements for future releases:
 - [ ] **Customer Order History (after login is implemented)**  
 - [ ] **Cart Persistence Between Sessions**  
 - [ ] **Out-of-Stock Indicators and Inventory Limits**
+- [ ] **Connect Stripe to Backend** To ensure successful payment before adding orders to backend
 
 ---
 
