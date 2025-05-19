@@ -54,7 +54,7 @@ const ReviewBlock = ({ product }: Props) => {
 
   return (
     <div className="w-full sm:mx-5">
-      <div className="flex justify-between items-center w-full flex-wrap">
+      <div className="flex xs:flex-col justify-between items-center w-full flex-wrap">
         <h3 className="font-black text-3xl w-full sm:w-1/2">Reviews</h3>
         <div className="flex items-center text-lg sm:text-xl font-semi-bold w-full sm:w-1/2">
           <Stars num={String(product.rating)} />
