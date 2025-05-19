@@ -7,6 +7,7 @@ import { BsSendCheck } from "react-icons/bs";
 import RatingByReview from "./RatingByReview";
 import ReviewList from "./ReviewList";
 
+
 interface Props {
   product: Product;
 }

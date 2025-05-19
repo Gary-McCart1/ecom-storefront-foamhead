@@ -11,7 +11,7 @@ const Footer = () => {
   
           <div>
             <h3 className="text-xl font-semibold mb-3">Explore</h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2 list-none">
               <li><Link href="/surfboards" className="hover:underline">Surfboards</Link></li>
               <li><Link href="/skimboards" className="hover:underline">Skimboards</Link></li>
             </ul>
@@ -19,15 +19,15 @@ const Footer = () => {
   
           <div>
             <h3 className="text-xl font-semibold mb-3">Get in Touch</h3>
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-2 text-sm list-none">
               <li>Email: gwmccart3@gmail.com</li>
               <li>Location: Venice Beach, CA</li>
             </ul>
           </div>
           <div>
             <h3 className="text-xl font-semibold mb-3">Admin</h3>
-            <ul className="space-y-2 text-sm">
-              <li className="hover:underline">admin.site.com</li>
+            <ul className="space-y-2 text-sm list-none">
+              <a href="https://ecom-dashboard-git-new-main-garys-projects-0f4d54e0.vercel.app/login" className="hover:underline">Admin Site</a>
             </ul>
           </div>
         </div>

@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useContext, useEffect, useState, useRef } from "react";
-import CheckoutButton from "../components/CheckoutButton";
 import Link from "next/link";
 import { CartContext } from "../context/CartContext";
 import Image from "next/image";
@@ -39,10 +38,17 @@ const Checkout = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     if (!name || !email || !address || !phone) {
       alert("Please fill out all required fields.");
       return;
     }
+
+    if (cartItems.length === 0) {
+      alert("Your cart is empty.");
+      return;
+    }
+
     setIsSubmitting(true);
 
     const orderData = {
@@ -53,30 +59,42 @@ const Checkout = () => {
       date: new Date().toISOString(),
       status: "Pending",
       shippingMethod,
-      trackingNumber: "----", // Placeholder for tracking number
+      trackingNumber: "----", // Placeholder
       total: cartTotal,
-      products: cartItems.map((item) => item.product.id), // Send only product IDs
+      // Include items array for nested serializer
+      items: cartItems.map((item) => ({
+        product: item.product.id,
+        quantity: item.quantity,
+        price: item.product.price,
+      })),
     };
 
     try {
-      const res = await fetch("https://foamhead-a8f24bda0c5b.herokuapp.com/api/orders/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(orderData),
-      });
+      console.log("Sending orderData:", orderData);
+      const res = await fetch(
+        "https://foamhead-a8f24bda0c5b.herokuapp.com/api/orders/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(orderData),
+        }
+      );
 
       if (!res.ok) {
         const errorData = await res.json();
-        console.error("Failed to add order:", errorData);
-      } else {
-        console.log("Order created successfully");
-        setIsSubmitting(false); // Stop submitting once order is created
+        console.error("Failed to create order:", errorData);
+        setIsSubmitting(false);
+        return;
       }
-    } catch (error) {
-      console.log("Error:", error);
-      setIsSubmitting(false); // Stop submitting in case of an error
+
+      console.log("Order created successfully");
+
+      // Proceed with your checkout or success flow here...
+    } catch (err) {
+      console.error("Error during checkout:", err);
+      setIsSubmitting(false);
     }
   };
 
@@ -206,12 +224,12 @@ const Checkout = () => {
         </div>
       </div>
 
-      {/* Invisible Stripe trigger */}
+      {/* Invisible Stripe trigger
       {isSubmitting && (
         <div className="hidden">
           <CheckoutButton ref={checkoutButtonRef} id="checkout-button" />
         </div>
-      )}
+      )} */}
     </div>
   );
 };
