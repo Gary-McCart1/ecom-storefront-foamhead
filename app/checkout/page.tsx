@@ -65,7 +65,6 @@ const Checkout = () => {
       items: cartItems.map((item) => ({
         product: item.product.id,
         quantity: item.quantity,
-        price: item.product.price,
       })),
     };
 
@@ -84,7 +83,10 @@ const Checkout = () => {
 
       if (!res.ok) {
         const errorData = await res.json();
-        console.error("Failed to create order:", errorData);
+        console.error(
+          "Failed to create order:",
+          JSON.stringify(errorData, null, 2)
+        );
         setIsSubmitting(false);
         return;
       }
