@@ -18,7 +18,6 @@ const ProductList = ({filter}: Props) => {
         const response = await fetch(`https://foamhead-a8f24bda0c5b.herokuapp.com/api/products?search=${filter}`);
         const data = await response.json();
         setProducts(data.results);
-        console.log(data);
       } catch (error) {
         console.log(error);
       } finally {

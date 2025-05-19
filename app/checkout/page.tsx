@@ -90,8 +90,6 @@ const Checkout = () => {
         return;
       }
 
-      console.log("Order created successfully");
-
       // Step 2: Create Stripe Checkout Session
       const checkoutRes = await fetch(
         "https://foamhead-a8f24bda0c5b.herokuapp.com/api/create-checkout-session/",

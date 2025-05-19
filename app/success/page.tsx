@@ -8,7 +8,6 @@ const Success = () => {
   const cartContext = useContext(CartContext);
 
   useEffect(() => {
-    console.log("Payment was successful!");
     if (cartContext) {
       cartContext.setCartItems([]); // clear cart in context and localStorage
     }

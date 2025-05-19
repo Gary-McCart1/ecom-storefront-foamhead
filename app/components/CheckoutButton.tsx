@@ -19,12 +19,10 @@ const CheckoutButton = forwardRef<HTMLButtonElement, CheckoutButtonProps>(
     const cart = useContext(CartContext);
 
     if (!cart) {
-      console.log(id);
       throw new Error("CartContext must be used within a CartProvider");
     }
 
     const { cartItems } = cart;
-    console.log(cartItems);
     const handleCheckout = async () => {
       const response = await fetch(
         "https://foamhead-a8f24bda0c5b.herokuapp.com/api/create-checkout-session/",
