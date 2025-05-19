@@ -61,7 +61,6 @@ const Checkout = () => {
       shippingMethod,
       trackingNumber: "----", // Placeholder
       total: Number(cartTotal.toFixed(2)),
-      // Include items array for nested serializer
       items: cartItems.map((item) => ({
         product: item.product.id,
         quantity: item.quantity,
@@ -69,7 +68,7 @@ const Checkout = () => {
     };
 
     try {
-      console.log("Sending orderData:", orderData);
+      // Step 1: Create Order
       const res = await fetch(
         "https://foamhead-a8f24bda0c5b.herokuapp.com/api/orders/",
         {
@@ -93,7 +92,34 @@ const Checkout = () => {
 
       console.log("Order created successfully");
 
-      // Proceed with your checkout or success flow here...
+      // Step 2: Create Stripe Checkout Session
+      const checkoutRes = await fetch(
+        "https://foamhead-a8f24bda0c5b.herokuapp.com/api/create-checkout-session/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            items: cartItems.map((item) => ({
+              product: {
+                name: item.product.name,
+                price: Math.round(Number(item.product.price) * 100), // price in cents
+              },
+              quantity: item.quantity,
+            })),
+          }),
+        }
+      );
+
+      const data = await checkoutRes.json();
+
+      if (checkoutRes.ok && data.url) {
+        window.location.href = data.url;
+      } else {
+        console.error("Checkout failed:", data.error || "No URL returned.");
+        setIsSubmitting(false);
+      }
     } catch (err) {
       console.error("Error during checkout:", err);
       setIsSubmitting(false);
