@@ -70,9 +70,9 @@ const ReviewBlock = ({ product }: Props) => {
         {toggleReview && (
           <div className="flex justify-center w-full">
             <form className="w-1/2 flex flex-col items-between">
-              <div className="flex items-center justify-between my-5">
+              <div className="flex-col sm:flex items-center justify-between my-5">
                 <label className="text-3xl font-black">Rating</label>
-                <div className="xs:flex-col flex w-full items-center sm:w-1/2">
+                <div className="xs:flex flex-col w-full items-center sm:w-1/2">
                   <input
                     autoFocus
                     className="border rounded-lg pl-2 pb-1 w-1/6"
