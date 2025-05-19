@@ -72,7 +72,7 @@ const ReviewBlock = ({ product }: Props) => {
             <form className="w-1/2 flex flex-col items-between">
               <div className="flex-col sm:flex items-center justify-between my-5">
                 <label className="text-3xl font-black">Rating</label>
-                <div className="flex w-full justify-between items-center sm:w-1/2">
+                <div className="flex w-full justify-between items-center">
                   <input
                     autoFocus
                     className="border rounded-lg pl-2 pb-1 w-1/6"
