@@ -55,7 +55,7 @@ const ReviewBlock = ({ product }: Props) => {
     <div className="w-full sm:mx-5">
       <div className="flex justify-between items-center w-full flex-wrap">
         <h3 className="font-black text-3xl w-full sm:w-1/2">Reviews</h3>
-        <div className="flex items-center text-lg sm:text-xl font-semi-bold w-full sm:w-1/2">
+        <div className="flex justify-center items-center text-lg sm:text-xl font-semi-bold w-full sm:w-1/2">
           <Stars num={String(product.rating)} />
           <p className="pl-2">
             {product.rating % 1 === 0 ? product.rating + ".0" : product.rating}{" "}
@@ -72,7 +72,7 @@ const ReviewBlock = ({ product }: Props) => {
             <form className="w-1/2 flex flex-col items-between">
               <div className="flex-col sm:flex items-center justify-between my-5">
                 <label className="text-3xl font-black">Rating</label>
-                <div className="xs:flex flex-col w-full items-center sm:w-1/2">
+                <div className="flex w-full justify-between items-center sm:w-1/2">
                   <input
                     autoFocus
                     className="border rounded-lg pl-2 pb-1 w-1/6"
@@ -80,7 +80,7 @@ const ReviewBlock = ({ product }: Props) => {
                     value={reviewRating}
                     onChange={(e) => setReviewRating(Number(e.target.value))}
                   />
-                  <div className="flex">
+                  <div className="flex justify-center">
                     <Stars num={String(reviewRating)} />
                   </div>
                 </div>
