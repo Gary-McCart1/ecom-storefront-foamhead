@@ -29,6 +29,7 @@ const ReviewBlock = ({ product }: Props) => {
       review: reviewText,
     }
     try{
+      console.log("Review Payload:", newPost);
       const res = await fetch("https://foamhead-a8f24bda0c5b.herokuapp.com/api/reviews/", {
         method: "POST",
         headers: {
