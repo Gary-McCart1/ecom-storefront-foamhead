@@ -2,9 +2,9 @@
 
 import { useState, useEffect, useContext } from "react";
 import { Menu, X } from "lucide-react";
-import { IoSearchSharp } from "react-icons/io5";
+// import { IoSearchSharp } from "react-icons/io5";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import { RxCross1 } from "react-icons/rx";
+// import { RxCross1 } from "react-icons/rx";
 import Image from "next/image";
 import Link from "next/link";
 import { CartContext } from "../context/CartContext";
@@ -16,8 +16,8 @@ interface Props {
 
 const Navigation = ({ opaque, home }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isSearch, setIsSearch] = useState(false);
-  const [searchText, setSearchText] = useState("");
+  const [isSearch, ] = useState(false);
+  // const [searchText, setSearchText] = useState("");
   const [scrolled, setScrolled] = useState(home ? opaque : true);
   const [isHydrated, setIsHydrated] = useState(false);
 
@@ -82,7 +82,7 @@ const Navigation = ({ opaque, home }: Props) => {
         <div className="hidden lg:flex w-2/7 justify-end gap-6 items-center">
           {isSearch ? (
             <div className="flex items-center">
-              <input
+              {/* <input
                 autoFocus
                 onChange={(e) => setSearchText(e.target.value)}
                 value={searchText}
@@ -93,16 +93,16 @@ const Navigation = ({ opaque, home }: Props) => {
               <RxCross1
                 className="text-xl ml-2 cursor-pointer"
                 onClick={() => setIsSearch(false)}
-              />
+              /> */}
               <AiOutlineShoppingCart className="text-3xl ml-5" />
             </div>
           ) : (
             <div className="flex justify-around w-1/2">
               <div>
-                <IoSearchSharp
+                {/* <IoSearchSharp
                   onClick={() => setIsSearch(true)}
                   className="text-3xl cursor-pointer"
-                />
+                /> */}
               </div>
               <div className="flex items-center">
                 <Link href="/cart" className="flex items-center">
