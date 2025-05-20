@@ -6,12 +6,14 @@ import { Product } from "../types/product";
 import Loading from "../loading";
 import ProductCard from "./ProductCard";
 
+
 const countProductOrders = (orders: Order[], products: Product[]) => {
   const counts: { [key: string]: { count: number; id: number } } = {};
 
   orders.forEach((order) => {
     order.products.forEach((orderedProduct) => {
-      const product = products.find((p) => p.id === orderedProduct);
+      console.log(orderedProduct)
+      const product = products.find((p) => p.id === orderedProduct.id);
       if (!product) return;
 
       if (!counts[product.name]) {
@@ -21,6 +23,7 @@ const countProductOrders = (orders: Order[], products: Product[]) => {
       }
     });
   });
+  console.log(counts)
 
   return Object.entries(counts)
     .map(([name, { count, id }]) => ({ name, count, id }))
