@@ -1,7 +1,7 @@
 # 🛍️ E-commerce Storefront (Next.js + Tailwind CSS)
 
 Website Link: https://ecom-storefront-foamhead.vercel.app/
-Youtube Demo: 
+Youtube Demo: https://www.youtube.com/watch?v=zR68VCaqn-8
 
 This is the **customer-facing frontend** for a full-featured e-commerce application. Built with **Next.js 13+ (App Router)** and **Tailwind CSS**, it provides a responsive, modern shopping experience.
 
